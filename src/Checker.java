@@ -3,6 +3,7 @@ import java.util.*;
 
 public class Checker {
 
+    public int minWordLength;
     private String filename;
     private String delimiter;
     private boolean Checked = false;
@@ -10,17 +11,18 @@ public class Checker {
     public Checker(String[] args) {
             try {
                 
-                if(args.length>2){
+                if(args.length > 3){
                     System.out.print("\nMore than required number of arguments !");
                     Help();
                     Warning();
                     System.exit(-1);
-                }else if(args.length==1){
+                }else if(args.length == 1){
                     // String filePath = args[0];
+                    //checking is done below
                 }
                 else if(args[1].length() > 1) {
                     System.out.println("\nDelimiter must be a single character.");
-                    System.out.print("Delimiter set by you - '"+args[1]+"'");
+                    System.out.print("Delimiter set by you - '" + args[1] + "'");
                     Help();
                     Warning();
                     System.exit(0);
@@ -29,7 +31,7 @@ public class Checker {
                 String filePath = args[0];
                 String extension = filePath.substring(filePath.lastIndexOf('.') + 1);
 
-                List<String> extensions = Arrays.asList("doc","docx","odt","pdf","rtf","tex","txt","wpd");
+                List<String> extensions = Arrays.asList("txt");
 
                 if(! extensions.contains(extension.toLowerCase())){
                     System.out.println("\nOnly text format is allowed. Your file-address have extension : '" + extension +"'");
@@ -49,8 +51,7 @@ public class Checker {
                     System.out.println("\nEmpty File !!! \t(please add non-empty file)");
                     System.exit(0);
                 }
-                
-                
+
                 try {
                     String content = "";
 
@@ -69,9 +70,6 @@ public class Checker {
                     System.out.println(e);
                 }
 
-                
-                
-
 
                 //default delimiter is '.'
                 String Delimiter = ".";
@@ -79,10 +77,28 @@ public class Checker {
                     Delimiter = args[1];
                 }
 
+                // default minWordLength is 4
+                int minWordLength = 4;
+                if(args.length == 3) {
+                    try {
+                        minWordLength = Integer.parseInt(args[2]);
+                    } catch (NumberFormatException e) {
+                        System.out.println("The minimum word length you provided in the third argument is not an Integer !");
+                        Help();
+                        System.exit(-1);
+                    }
+                    if(minWordLength < 0) {
+                        System.out.println("The minimum word length you provided in the third argument can't be negative !");
+                        Help();
+                        System.exit(-1);
+                    }
+                }
+
                 //set the filename and Delimiter
                 setChecked(true);
                 setFilename(filePath);
                 setDelimiter(Delimiter);
+                setMinWordLength(minWordLength);
                 
             } catch (Exception e) {
                 System.out.println(e);
@@ -123,7 +139,14 @@ public class Checker {
         Checked = checked;
     }
 
-    public static <T> Integer textIsEnglish(String text) {
+    public void setMinWordLength(int minWordLength) {
+        this.minWordLength = minWordLength;
+    }
+
+    public int getMinWordLength() {
+        return this.minWordLength;
+    }
+    public static <T> void textIsEnglish(String text) {
 
         Map<String,Integer> lang = new HashMap<>();        
 
@@ -144,7 +167,6 @@ public class Checker {
             System.out.println("\nText file is not in English."+ "\nlanguage used in your text is : "+ map.keySet());
         }
 
-        return 0;
     }
 
     private static HashMap sortByValues(Map<String, Integer> lang) {
