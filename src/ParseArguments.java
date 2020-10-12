@@ -80,15 +80,15 @@ public class ParseArguments {
         String manual = "(This is a command-line program written in java to find no. of " +
             "lines, words, average length in your Essay/writting.)\n" +
             "\n\nHow-To guide : \n"  +
-            "\n\tTo get the team Information : use '--team' flag with the jar file." +
+            "\n\t- To get the team Information : use '--team' flag with the jar file." +
             "\n\t> $ java -jar <PATH TO JAR FILE> --team\n" +
-            "\n\tTo get the manual : use '--help' flag with the jar file" +
+            "\n\t- To get the manual : use '--help' flag with the jar file" +
             "\n\t> $ java -jar <PATH TO JAR FILE> --help\n" +
-        "\n\tTo use the jar file to find no. of average lines, words, total lines, execute following command:" +
+        "\n\t- To use the jar file to find no. of average lines, words, total lines, execute following command:" +
             "\n\t> $ java -jar <PATH TO JAR FILE> <PATH TO YOUR ESSAY FILE> <DELIMITER IF ANY> <Minimum Word Length>\n" +
             "\n\t**Note : here delimiter means the character with which your sentence ends. " +
             "By default sentence ends with '.' character" +
-            "\n\tDefault value of minimum word length is 4, this is optional argument";
+            "\n\t- Default value of minimum word length is 4, this is optional argument";
 
         System.out.println(manual);
         System.out.println("\n--------- END OF MANUAL ----------");

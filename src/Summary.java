@@ -6,6 +6,7 @@ public class Summary {
 	private String filepath;
 	private String delimiter;
 	private int wordLengthTH;
+	private String contents;
 
 	private Map<String, String> converter = new HashMap<String, String>(){{
 			put(".", "\\.");
@@ -15,6 +16,7 @@ public class Summary {
 		this.filepath = filepath;
 		this.delimiter = converter.getOrDefault(delimiter, delimiter);
 		this.wordLengthTH = wordLengthTH;
+		this.contents = getFileContents().replace('\n', ' ').trim();
 	}
 
 	private int countWords(String contents) {
@@ -52,22 +54,15 @@ public class Summary {
 		return contents;
 	}
 
-	public Map<Description, Integer> getSummary() {
-		HashMap<Description, Integer> summary = new HashMap<Description, Integer>();
-		String contents = getFileContents().replace('\n', ' ').trim();
+	public int getWordCount() {
+		return this.countWords(this.contents);
+	}
 
-		// System.out.println(contents + Arrays.toString(contents.trim().split(" ")));
+	public int getSentenceCount() {
+		return this.countSentences(this.contents);
+	}
 
-		// calculate the statistics of the contents of file
-		int numSentences = countSentences(contents);
-		int numWords = countWords(contents);
-		int averageLength = (numSentences > 0 ? numWords/ numSentences : 0);
-
-		// prepare summary
-		summary.put(Description.numWords, numWords);
-		summary.put(Description.numSentences, numSentences);
-		summary.put(Description.averageLength, averageLength);
-
-		return summary;
+	public int getAvgLength() {
+		return (getSentenceCount() > 0 ? getWordCount()/ getSentenceCount() : 0);
 	}
 }
