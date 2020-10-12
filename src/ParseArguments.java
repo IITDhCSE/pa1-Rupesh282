@@ -84,7 +84,7 @@ public class ParseArguments {
             "\n\t> $ java -jar <PATH TO JAR FILE> --team\n" +
             "\n\t- To get the manual : use '--help' flag with the jar file" +
             "\n\t> $ java -jar <PATH TO JAR FILE> --help\n" +
-        "\n\t- To use the jar file to find no. of average lines, words, total lines, execute following command:" +
+        "\n\t- To use the jar file to find average no. of words per sentenc, total words, total sentences, execute following command:" +
             "\n\t> $ java -jar <PATH TO JAR FILE> <PATH TO YOUR ESSAY FILE> <DELIMITER IF ANY> <Minimum Word Length>\n" +
             "\n\t**Note : here delimiter means the character with which your sentence ends. " +
             "By default sentence ends with '.' character" +
