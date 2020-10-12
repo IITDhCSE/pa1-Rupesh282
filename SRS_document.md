@@ -57,7 +57,6 @@
  
 | Req#  				| Requirement		| Comment						| Priority |
 | --------------------- |:---------------------:|:-----------------------------:|:-----:| 
-| REQ1 | To be able to find the long words from the essay and notify user via prompt on terminal screen. | User knows how many sentences are too long | high |
 | REQ2 | To be able to adjust number of words instructor allows as an acceptable sentence. | NA | high |
 | REQ3 | To be able to adjust instructors preferences as what symbol should be considered as end of sentences. | From a given set of options, instructor selects as what is favourable. | high |
 | REQ4 | Output the appropriate messages (error message in case of faults) | User will understand what went wrong | high |
