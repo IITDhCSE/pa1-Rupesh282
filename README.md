@@ -15,7 +15,7 @@ A java based command line tool to find the average length of words per sentence 
 <br>
 
 #### Synopsis: <br>
-` java -jar <PATH TO JAR FILE> <PATH TO YOUR ESSAY FILE> <DELIMITER IF ANY> ` <br>
+` java -jar <PATH TO JAR FILE> <PATH TO YOUR ESSAY FILE> <DELIMITER IF ANY> <MINIMUM WORD LENGTH>` <br>
 ` java -jar <PATH TO JAR FILE> --help ` <br>
 ` java -jar <PATH TO JAR FILE> --team ` <br>
 
@@ -29,6 +29,7 @@ A java based command line tool to find the average length of words per sentence 
 |path to jar file | this denote the relative path jar files, which contains the bundled code to be executed | No | NA |
 |path to essay file | this denotes the relative path to essay file, whose contents is to be evaluated | No | NA |
 |delimiter | this denotes the delimiter which will be considered as end of an sentence | Yes | '.' |
+|minimum word length | Only those words will be counted which have specified minimum word length | Yes | 4 |
 |--help | this prints help/ manpage for executing the program | Yes | NA |
 |--team | this prints the team details | Yes | NA |
 
