@@ -21,7 +21,7 @@ A java based command line tool to find the average length of words per sentence 
 
 
 #### Description: <br>
-
+This is A java based command line tool to find the average length of words per sentence present in the given file. It help students to analyse the average lenght of the sentences they write in essays, and thus improve their writing. It takes relative path of text file which contains the essay, and calculates the statistics like num of words, num of sentences, average num of words per sentence etc. It has been made user friendly, keeping in mind the diverse background of students that would be using it. It has been made flexible by accepting optional arguments like delemiter which denotes the end of sentence, min num of chars that should be considered as a word etc.
 
 #### Options: <br>
 | Arg | Description | Optional | Default |
