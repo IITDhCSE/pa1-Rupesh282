@@ -14,15 +14,17 @@ FeaturesOfFile:
 	Sentences:	
 		NoSentence.		[if textfile][if empty][property nosentence]
 		OneSentence.	[if textfile][if goodfile][property sentence]
-		Sentence<10.[if textfile][if goodfile][property sentence]
-		Sentence>10.[if textfile][if goodfile][property sentence]
+		MultipleSentence.[if textfile][if goodfile][property sentence]
 			Words:
 				NoWord			[if textfile][if empty][if !sentence]
-				Singleword.		[if textfile][if goodfile][if sentence]
-				EverywordLen<MinWordLength. [if textfile][if goodfile][if sentence]
-				EverywordLen>MinWordLength.[if textfile][if goodfile][if sentence]
-	SentenceProp:
-		AtEndContains=DelimeterProvided. [if textfile][if goodfile][if sentence]
-		AtEndContains!=DelimeterProvided. [if textfile][if goodfile][if sentence]
-		AtEndNewLine.		[if textfile][if goodfile][if sentence]
-		AtEndTab.			[if textfile][if goodfile][if sentence]
+				Singleword.		[if textfile][if goodfile][if sentence][property word]
+				EverywordLen<MinWordLength. [if textfile][if goodfile][if sentence][property word]
+
+Delimeter:
+	IsSpecialCharacter.[if textfile][if goodfile][if sentence]
+	IsNotSpecialCharacter.[if textfile][if goodfile][if sentence]
+	NotSingleCharacter.[if textfile][if goodfile][if sentence]
+
+MinWordLength:
+	Is>0.[if textfile][if goodfile][if sentence][if word]
+	Is<0.[if textfile][if goodfile][if sentence][if word]
