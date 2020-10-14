@@ -48,12 +48,12 @@ public class Checker {
                         try {
                             minWordLength = Integer.parseInt(args[2]);
                         } catch (NumberFormatException e) {
-                            System.out.println("The minimum word length you provided in the third argument is not an Integer !");
+                            System.out.println("\nThe minimum word length you provided in the third argument is not an Integer !");
                             Help();
                             System.exit(-1);
                         }
                         if(minWordLength < 0) {
-                            System.out.println("The minimum word length you provided in the third argument can't be negative !");
+                            System.out.println("\nThe minimum word length you provided in the third argument can't be negative !");
                             Help();
                             System.exit(-1);
                         }
@@ -82,12 +82,12 @@ public class Checker {
                             
                             minWordLength = Integer.parseInt(args[4]);
                         } catch (NumberFormatException e) {
-                            System.out.println("The minimum word length you provided in the fifth argument is not an Integer !");
+                            System.out.println("\nThe minimum word length you provided in the fifth argument is not an Integer !");
                             Help();
                             System.exit(-1);
                         }
                         if(minWordLength < 0) {
-                            System.out.println("The minimum word length you provided in the fifth argument can't be negative !");
+                            System.out.println("\nThe minimum word length you provided in the fifth argument can't be negative !");
                             Help();
                             System.exit(-1);
                         }
