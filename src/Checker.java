@@ -10,24 +10,96 @@ public class Checker {
 
     public Checker(String[] args) {
             try {
-                
-                if(args.length > 3){
+            
+                //default delimiter is '.'
+                String Delimiter = ".";
+
+                // default minWordLength is 4
+                int minWordLength = 4;
+
+                if(args.length > 5){
                     System.out.print("\nMore than required number of arguments !");
                     Help();
                     Warning();
                     System.exit(-1);
                 }else if(args.length == 1){
-                    // String filePath = args[0];
-                    //checking is done below
+
                 }
-                else if(args[1].length() > 1) {
-                    System.out.println("\nDelimiter must be a single character.");
-                    System.out.print("Delimiter set by you - '" + args[1] + "'");
+                else if(args.length == 2 || args.length == 4){
+                    System.out.print("\nSome error in arguments ! (may be missing some arguments)");
                     Help();
                     Warning();
-                    System.exit(0);
+                    System.exit(-1);
                 }
+                else if(args.length == 3){
+                    if(args[1].equals("--d")){
+                        if(args[2].length() > 1) 
+                            {
+                                System.out.println("\nDelimiter must be a single character.");
+                                System.out.print("Delimiter set by you - '" + args[2] + "'");
+                                Help();
+                                // System.out.print("*NOTE : <Space> can't be delimiter");
+                                Warning();
+                                System.exit(0);
+                            }
+                            Delimiter = args[2];
+                        
+                    }else if(args[1].equals("--l")){
+                        try {
+                            minWordLength = Integer.parseInt(args[2]);
+                        } catch (NumberFormatException e) {
+                            System.out.println("The minimum word length you provided in the third argument is not an Integer !");
+                            Help();
+                            System.exit(-1);
+                        }
+                        if(minWordLength < 0) {
+                            System.out.println("The minimum word length you provided in the third argument can't be negative !");
+                            Help();
+                            System.exit(-1);
+                        }
 
+                    }else{
+                        System.out.print("\nSome error in arguments !");
+                        Help();
+                        Warning();
+                        System.exit(-1);
+                    }
+                }
+                else if(args.length == 5){
+                    if(args[1].equals("--d") && args[3].equals("--l")){
+                        if(args[2].length() > 1) 
+                            {
+                                System.out.println("\nDelimiter must be a single character.");
+                                System.out.print("Delimiter set by you - '" + args[2] + "'");
+                                Help();
+                                // System.out.print("*NOTE : <Space> can't be delimiter");
+                                Warning();
+                                System.exit(0);
+                            }
+                        Delimiter = args[2];
+
+                        try {
+                            
+                            minWordLength = Integer.parseInt(args[4]);
+                        } catch (NumberFormatException e) {
+                            System.out.println("The minimum word length you provided in the fifth argument is not an Integer !");
+                            Help();
+                            System.exit(-1);
+                        }
+                        if(minWordLength < 0) {
+                            System.out.println("The minimum word length you provided in the fifth argument can't be negative !");
+                            Help();
+                            System.exit(-1);
+                        }
+
+                    }else{
+                        System.out.print("\nSome error in arguments !");
+                        Help();
+                        Warning();
+                        System.exit(-1);
+                    }
+                }
+                
                 String filePath = args[0];
                 String extension = filePath.substring(filePath.lastIndexOf('.') + 1);
 
@@ -71,28 +143,8 @@ public class Checker {
                 }
 
 
-                //default delimiter is '.'
-                String Delimiter = ".";
-                if(args.length > 1) {
-                    Delimiter = args[1];
-                }
-
-                // default minWordLength is 4
-                int minWordLength = 4;
-                if(args.length == 3) {
-                    try {
-                        minWordLength = Integer.parseInt(args[2]);
-                    } catch (NumberFormatException e) {
-                        System.out.println("The minimum word length you provided in the third argument is not an Integer !");
-                        Help();
-                        System.exit(-1);
-                    }
-                    if(minWordLength < 0) {
-                        System.out.println("The minimum word length you provided in the third argument can't be negative !");
-                        Help();
-                        System.exit(-1);
-                    }
-                }
+                
+                
 
                 //set the filename and Delimiter
                 setChecked(true);
@@ -158,13 +210,14 @@ public class Checker {
         
         Map<String,Integer> map = sortByValues(lang); 
 
-        if(map.size()>1){
+        if(map.size()>2){
             System.out.println("\nWARNING : Text file is expected to be strictly in English. (Your text uses more than 1 languages) "+ "\nlanguages used in your text are : "+ map.keySet());
             System.out.println("**NOTE : English is composed of BASIC_LATIN**\n");
             // System.exit(0);
         }
-        else if(! map.keySet().contains("BASIC_LATIN")){
-            System.out.println("\nText file is not in English."+ "\nlanguage used in your text is : "+ map.keySet());
+        else if(map.size()==2){
+            map.keySet().remove("BASIC_LATIN");
+            System.out.println("\nWARNING : Text file is not in English."+ "\nlanguage used in your text is : "+ map.keySet());
         }
 
     }
