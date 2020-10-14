@@ -5,17 +5,16 @@ public class Main {
 		ParseArguments parser = new ParseArguments(args);
 		Checker check = new Checker(args);
 		if(check.isChecked()){
-			// System.out.println("checked !!");
-			System.out.println("SUMMERY : ");
+			
 			Summary sm = new Summary(check.getFilename(), check.getDelimiter(), check.getMinWordLength());
-			System.out.println("File used for processing : " + check.getFilename());
-			System.out.println("Delimiter used to separate sentences in text : " + "'" + check.getDelimiter() + "'");
-			System.out.println("Minimum word Length used to calculate word count in text : " + check.getMinWordLength());
-//			System.out.println(sm.getSummary());
-			System.out.println();
-			System.out.printf("Number of words in your text                 : %d\n", sm.getWordCount());
-			System.out.printf("Number of sentences in your text             : %d\n", sm.getSentenceCount());
-			System.out.printf("Average length of each sentence in your text : %d\n", sm.getAvgLength());
+			System.out.println("\nFile used  \t\t\t: " + check.getFilename());
+			System.out.println("Delimiter used  \t\t: " + "'" + check.getDelimiter() + "'");
+			System.out.println("Minimum word Length set to be \t:  " + check.getMinWordLength());
+
+			System.out.println("\nSummary: ");
+			System.out.printf("\tNumber of words in your text                 : %d\n", sm.getWordCount());
+			System.out.printf("\tNumber of sentences in your text             : %d\n", sm.getSentenceCount());
+			System.out.printf("\tAverage length of each sentence in your text : %d\n\n", sm.getAvgLength());
 		}
 		
 	}
