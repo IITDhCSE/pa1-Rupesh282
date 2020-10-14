@@ -57,9 +57,9 @@
  
 | Req#  				| Requirement		| Comment						| Priority |
 | --------------------- |:---------------------:|:-----------------------------:|:-----:| 
-| REQ2 | To be able to adjust number of words instructor allows as an acceptable sentence. | NA | high |
-| REQ3 | To be able to adjust instructors preferences as what symbol should be considered as end of sentences. | From a given set of options, instructor selects as what is favourable. | high |
-| REQ4 | Output the appropriate messages (error message in case of faults) | User will understand what went wrong | high |
+| REQ1 | To be able to adjust number of words instructor allows as an acceptable sentence. | NA | high |
+| REQ2 | To be able to adjust instructors preferences as what symbol should be considered as end of sentences. | From a given set of options, instructor selects as what is favourable. | high |
+| REQ3 | Output the appropriate messages (error message in case of faults) | User will understand what went wrong | high |
 
 #### Non-Functional Requirements ####
   User should not edit/ alter the code base of command line tool. Changing the code, without understanding might have hazardous consequences when run, ranging from displaying faulty messages to completely erasing files from the machine.
