@@ -38,6 +38,7 @@ public class Checker {
                                 System.out.println("\nDelimiter must be a single character.");
                                 System.out.print("Delimiter set by you - '" + args[2] + "'");
                                 Help();
+                                // System.out.print("*NOTE : <Space> can't be delimiter");
                                 Warning();
                                 System.exit(0);
                             }
@@ -71,6 +72,7 @@ public class Checker {
                                 System.out.println("\nDelimiter must be a single character.");
                                 System.out.print("Delimiter set by you - '" + args[2] + "'");
                                 Help();
+                                // System.out.print("*NOTE : <Space> can't be delimiter");
                                 Warning();
                                 System.exit(0);
                             }
@@ -208,13 +210,14 @@ public class Checker {
         
         Map<String,Integer> map = sortByValues(lang); 
 
-        if(map.size()>1){
+        if(map.size()>2){
             System.out.println("\nWARNING : Text file is expected to be strictly in English. (Your text uses more than 1 languages) "+ "\nlanguages used in your text are : "+ map.keySet());
             System.out.println("**NOTE : English is composed of BASIC_LATIN**\n");
             // System.exit(0);
         }
-        else if(! map.keySet().contains("BASIC_LATIN")){
-            System.out.println("\nText file is not in English."+ "\nlanguage used in your text is : "+ map.keySet());
+        else if(map.size()==2){
+            map.keySet().remove("BASIC_LATIN");
+            System.out.println("\nWARNING : Text file is not in English."+ "\nlanguage used in your text is : "+ map.keySet());
         }
 
     }
