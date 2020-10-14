@@ -1,5 +1,11 @@
 // import java.io.File;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class ParseArguments {
     // private String filename;
     // private String delimiter;
@@ -12,7 +18,7 @@ public class ParseArguments {
                 teamInfo();
                 System.out.println();
                 System.exit(0);
-            } else if (arg.equals("--help")) {
+            } else if (arg.equals("--help")){
                 System.out.println();
                 manual();
                 System.out.println();
@@ -42,9 +48,10 @@ public class ParseArguments {
                 // setFilename(filePath);
                 // setDelimiter(Delimiter);
             // }
-        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException | FileNotFoundException e) {
             //In case user doesn't provide any arguments to jar file
-            System.out.println("\nPlease Enter arguments !\t(For more help, use '--help' tag)\n");
+//            System.out.println("\nPlease Enter arguments !\t(For more help, use '--help' tag)\n");
+            System.out.println(e);
             System.exit(-1);
         }
     }
@@ -75,21 +82,44 @@ public class ParseArguments {
         System.out.println("\tRupesh Kalantre (180010029) ");
     }
 
-    private void manual() {
+    private void manual() throws FileNotFoundException {
         System.out.println("---------    MANUAL    ----------\n");
-        String manual = "(This is a command-line program written in java to find no. of " +
-            "lines, words, average length in your Essay/writting.)\n" +
-            "\n\nHow-To guide : \n"  +
-            "\n\t- To get the team Information : use '--team' flag with the jar file." +
-            "\n\t> $ java -jar <PATH TO JAR FILE> --team\n" +
-            "\n\t- To get the manual : use '--help' flag with the jar file" +
-            "\n\t> $ java -jar <PATH TO JAR FILE> --help\n" +
-        "\n\t- To use the jar file to find average no. of words per sentenc, total words, total sentences, execute following command:" +
-            "\n\t> $ java -jar <PATH TO JAR FILE> <PATH TO YOUR ESSAY FILE> <DELIMITER IF ANY> <Minimum Word Length>\n" +
-            "\n\t**Note : here delimiter means the character with which your sentence ends. " +
-            "By default sentence ends with '.' character" +
-            "\n\t- Default value of minimum word length is 4, this is optional argument";
-
+        String manual = "About Program :  \n\tA java based command line tool to find the average length of words per sentence present in the given file.\n" +
+                "Synopsis :  \n\tjava -jar <PATH TO JAR FILE> <PATH TO YOUR ESSAY FILE> -d <DELIMITER> -l <MINIMUM WORD LENGTH>" +
+                "\n\tjava -jar <PATH TO JAR FILE> --help" +
+                "\n\tjava -jar <PATH TO JAR FILE> --team\n" +
+                "Options : " +
+                "\n\tArguments : \n" +
+                "\n\t1 ) Path to jar file" +
+                "\n\t\t> Description : this denote the relative path jar file, \n\t\t\t\twhich contains the bundled code to be executed." +
+                "\n\t\t> Optional    : No" +
+                "\n\t\t> Default     : NA" +
+                "\n" +
+                "\n\t2 ) Path to essay file" +
+                "\n\t\t> Description : this denote the relative essay jar file, \n\t\t\t\twhose contents is to be evaluated." +
+                "\n\t\t> Optional    : No" +
+                "\n\t\t> Default     : NA" +
+                "\n" +
+                "\n\t3 ) Delimiter" +
+                "\n\t\t> Description : this denotes the delimiter which will \n\t\t\t\tbe considered as end of an sentence.Also it should be a single character." +
+                "\n\t\t\t\tIn command line, You should specify -d flag as shown above before giving this argument." +
+                "\n\t\t> Optional    : Yes" +
+                "\n\t\t> Default     : '.'" +
+                "\n" +
+                "\n\t4 ) Minimum word Length" +
+                "\n\t\t> Description : Only those words will be counted \n\t\t\t\twhich have specified minimum word length.It should be a positive integer." +
+                "\n\t\t> Optional    : Yes" +
+                "\n\t\t> Default     : 4" +
+                "\n" +
+                "\n\t5 ) --help" +
+                "\n\t\t> Description : This prints help/ manpage for executing the program." +
+                "\n\t\t> Optional    : Yes" +
+                "\n\t\t> Default     : NA" +
+                "\n" +
+                "\n\t6 ) --team" +
+                "\n\t\t> Description : This prints the team details." +
+                "\n\t\t> Optional    : Yes" +
+                "\n\t\t> Default     : NA\n";
         System.out.println(manual);
         System.out.println("\n--------- END OF MANUAL ----------");
     }
