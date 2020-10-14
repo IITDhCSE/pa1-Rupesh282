@@ -41,15 +41,15 @@ run tester.py file with $ python3 tester.py
 
 Explanation of all corresponing files & commands in tester.py :
 
-1. Case 1 : Empty file
-2. Case 2 : non-text file
-3. Case 3 : non-English text file (just adds Warning about lang. used other than English AND runs as usual)
-4. Case 4 : multiple langs. in text file (just adds Warning about langs used other than English AND runs as usual)
-5. Case 5 : Normal text file
-6. Case 6 : Normal text file with empty delimiter (incorrect argument)
-7. Case 7 : Normal text file with delimiter 
-8. Case 8 : Normal text file with multicharacter delimiter
-9. Case 9 : Normal text file with empty min. word length (incorrect argument)
+1.  Case 1  : Empty file
+2.  Case 2  : non-text file
+3.  Case 3  : non-English text file (just adds Warning about lang. used other than English AND runs as usual)
+4.  Case 4  : multiple langs. in text file (just adds Warning about langs used other than English AND runs as usual)
+5.  Case 5  : Normal text file
+6.  Case 6  : Normal text file with empty delimiter (incorrect argument)
+7.  Case 7  : Normal text file with delimiter 
+8.  Case 8  : Normal text file with multicharacter delimiter
+9.  Case 9  : Normal text file with empty min. word length (incorrect argument)
 10. Case 10 : Normal text file with word length
 11. Case 11 : Normal text file with -ve word length
 12. Case 12 : Normal text file with non-interger word length
