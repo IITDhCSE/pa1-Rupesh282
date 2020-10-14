@@ -56,9 +56,7 @@ public class ParseArguments {
         }
     }
 
-    // public void setFilename(String fileName) {
-    //     this.filename = fileName;
-    // }
+    
 
     // public void setDelimiter(String delimiter) {
     //     this.delimiter = delimiter;

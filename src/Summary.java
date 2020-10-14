@@ -30,6 +30,7 @@ public class Summary {
 	}
 
 	private int countSentences(String contents) {
+		//couting number of sentences in our file
 		String[] sentences = contents.trim().split(delimiter);
 		return ((sentences[0] != "" || sentences.length > 1) ? sentences.length: 0);
 	}

@@ -134,7 +134,7 @@ public class Checker {
                     
                     fileReader.close();
 
-                    // ////// lang detection 
+                    // ////// lang detection for neglecting other languages such as chinese
                     
                     textIsEnglish(content);
                 }
@@ -160,10 +160,12 @@ public class Checker {
     }
 
     public void Warning() {
+        //For Warning
         System.out.println("**Note : if file path contains space, Add '\\' before space OR Add complete file path in single quotes - '<FILE PATH>'");
     }
 
     public void Help() {
+        //For help
         System.out.println("\t(For more help, use '--help' tag)\n");
     }
 
