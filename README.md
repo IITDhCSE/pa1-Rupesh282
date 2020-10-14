@@ -18,6 +18,7 @@ A java based command line tool to find the average length of words per sentence 
 ` java -jar <PATH TO JAR FILE> <PATH TO YOUR ESSAY FILE> --d <DELIMITER> --l <MINIMUM WORD LENGTH> ` <br>
 ` java -jar <PATH TO JAR FILE> --help ` <br>
 ` java -jar <PATH TO JAR FILE> --team ` <br>
+
 To run test cases: `python3 tester.py`
 
 
