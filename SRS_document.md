@@ -1,6 +1,6 @@
 # Requirements Specification # 
 <b>for</b>
-## Project Name ##
+## ASSIGNMENT 1 ##
 <b>prepared by:</b>
 ## 
 * Manjeet Kapil (180010021)
