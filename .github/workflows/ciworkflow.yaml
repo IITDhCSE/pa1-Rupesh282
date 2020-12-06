@@ -1,0 +1,13 @@
+name: A workflow PA1
+on: push
+
+jobs:
+  build:
+    name: build project
+    runs-on: ubuntu-latest
+    steps:
+      - name: check out 
+        uses: actions/checkout@v1
+      - name: Run build
+        run: ./build.sh
+
