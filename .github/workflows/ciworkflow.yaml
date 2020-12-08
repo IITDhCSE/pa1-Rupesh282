@@ -1,0 +1,15 @@
+name: HA4 Assignment
+on: 
+  push:
+    branches: 
+      - harshraj22branch
+
+jobs:
+  build:
+    name: build project 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Run build
+        run: ./build.sh
