@@ -1,0 +1,15 @@
+name: Assignment workflow
+on: 
+  push:
+    branches: 
+      - Manjeetkapil
+
+jobs:
+  build:
+    name: build project 
+    runs-on: ubuntu-19.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Run build
+        run: ./build.sh
