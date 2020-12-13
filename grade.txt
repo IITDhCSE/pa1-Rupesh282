@@ -1,2 +1,2 @@
-8
-Final grade: 8.0
+7.5
+Final grade: 7.5 (-0.5 for deleting ciworkflow.yaml)
