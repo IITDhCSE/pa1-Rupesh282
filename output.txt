@@ -1,0 +1,13 @@
+Commit ID tagged for submission: 5973b4554fdfef1cc4d88dc2d65f56b5c78dc764
+Submission graded at: 2021-01-15 12:39:24
+
+[*] make dev
+make: *** No rule to make target 'dev'.  Stop.
+[!] There was an error in compiling for 'dev' target! (-2)
+[*] make clean
+make: *** No rule to make target 'clean'.  Stop.
+[!] There was an error in running 'clean' recipe (-2)
+[*] make compiler
+make: *** No rule to make target 'compiler'.  Stop.
+Quitting due to error in building compiler (-7)
+grade:2
